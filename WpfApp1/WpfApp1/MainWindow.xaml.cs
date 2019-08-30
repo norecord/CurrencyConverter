@@ -35,21 +35,10 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-
-            //if (File.Exists("config.txt") == false)
-            //{
-            //    /*все пропало, файла нет, надо срочно что-то делать*/
-            //    File.Create(@"F:\WpfApp1\WpfApp1\bin\Debug\config.txt");
-            //    config[0] = "server";
-            //    File_Read();
-            //}
-            //else
-            //{
-            //    File_Read();
-            //}
+            
             try
             {
-                xDoc.Load(@"XML_daily.asp");
+                xDoc.Load(@"http://www.cbr.ru/scripts/XML_daily.asp");
             }
             catch (Exception ex)
             {
@@ -91,25 +80,7 @@ namespace WpfApp1
                 second_curname.Items.Add(valute.Name);
             }
         }
-        //void File_Read()
-        //{
-            
-        //    switch (config[0])
-        //    {
-        //        case "server":
-        //            path = "http://www.cbr.ru/scripts/XML_daily.asp";
-        //            break;
-        //        case "pc":
-        //            path = "XML_daily.asp";
-        //            if (File.Exists(@"F:\WpfApp1\WpfApp1\bin\Debug\config.txt") == false)
-        //            {
-        //                /*все пропало, файла нет, надо срочно что-то делать*/
-        //                new WebClient().DownloadFile($"http://www.cbr.ru/scripts/XML_daily.asp", "XML_daily.asp");
-        //            }
-        //            break;
-
-        //    }
-        //}
+       
         private void ComboBox_Selected(object sender, RoutedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -141,10 +112,6 @@ namespace WpfApp1
                 MessageBox.Show($"{ex.Message.ToString()}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-
-        
-
 
         class Valute
         {
