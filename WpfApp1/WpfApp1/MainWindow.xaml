@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="CurrencyConvector" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,11 +26,41 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="first_cur" Grid.Column="2" Grid.Row="2" Height="25"></TextBox>
-        <Label x:Name="second_cur" Grid.Column="2" Grid.Row="3" Height="25"></Label>
-        <ComboBox x:Name="first_curname" Grid.Column="3" Grid.Row="2" Height="25" Grid.ColumnSpan="2" Margin="24,22,108,22" SelectionChanged="ComboBox_Selected"></ComboBox>
-        <ComboBox  x:Name="second_curname" Grid.Column="3" Grid.Row="3" Height="25" Grid.ColumnSpan="2" Margin="24,22,108,22" SelectionChanged="ComboBox_Selected_2"></ComboBox>
-        <Button x:Name="button_" Grid.Column="2" Grid.Row="4" Height="30" Grid.ColumnSpan="2" Margin="66,25,66,15" Content="Перевести" Click="Translate"></Button>
+        <Menu x:Name="menu" Height="25" Grid.ColumnSpan="6"  VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open" Click="File_Open"></MenuItem>
+                <!-- <MenuItem Header="Save" Click="File_Save"></MenuItem> -->
+                <!-- <MenuItem Header="Save as" Click="File_SaveAs"></MenuItem> -->
+                 <MenuItem Header="Exit" Click="Exit"></MenuItem> 
+                             
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="First currency" Click="Currency_Info"></MenuItem>
+                <MenuItem Header="Second currency" Click="Currency_Info"></MenuItem>
+                <MenuItem Header="Clear" Click="Clear"></MenuItem>
+                
+            </MenuItem>
+            <MenuItem Header="Copy">
+                <MenuItem Header="Result" Click="Copy"></MenuItem>
+                <MenuItem Header="Log" Click="Copy"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help" Height="20">
+                <MenuItem Header="About" Click="Help_About"></MenuItem>
+
+            </MenuItem>
+            
+            </Menu>
+        <TextBox x:Name="first_cur" Grid.Column="1" Grid.Row="2" Height="25"></TextBox>
+        <Label x:Name="second_cur" Grid.Column="1" Grid.Row="3" Height="25"></Label>
+        <ComboBox x:Name="first_curname" Grid.Column="2" Grid.Row="2" Height="25" Grid.ColumnSpan="2" Margin="24,22,108,22" SelectionChanged="ComboBox_Selected"></ComboBox>
+        <ComboBox  x:Name="second_curname" Grid.Column="2" Grid.Row="3" Height="25" Grid.ColumnSpan="2" Margin="24,22,108,22" SelectionChanged="ComboBox_Selected_2"></ComboBox>
+        <Button x:Name="button_" Grid.Column="1" Grid.Row="4" Height="30" Grid.ColumnSpan="2" Margin="66,25,66,15" Content="Перевести" Click="Translate"></Button>
+        <TextBox x:Name="date_req"  Height="25" Grid.ColumnSpan="1" Margin="0,20,0,0">date_req=02/03/2002</TextBox>
+        <Button x:Name="load_button" Grid.Column="1" Height="25" Margin="0,20,0,0" Content="Load" Click="Load_button"></Button>
+        <ScrollViewer Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2" Margin="0,20,0,0">
+            <TextBlock x:Name="log_info"></TextBlock>
+        </ScrollViewer>
+       
         
         <!--<Menu x:Name="menu" Height="20" Grid.ColumnSpan="6"  VerticalAlignment="Top">
             <MenuItem Header="File" Height="20">
